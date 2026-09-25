@@ -9,6 +9,10 @@ package cl.dsy1102.fonda;
  */
 public class Main {
 
+    Main() {
+
+    }
+
     public static void main(String[] args) {
         // TODO 1: instanciar las cuatro bebidas con los datos del enunciado.
         // TODO 2: marcar la bebida alcoholica 'Chicha' con la venta restringida.
@@ -16,6 +20,33 @@ public class Main {
         // TODO 4: solicitar las cuatro ventas indicadas en el enunciado.
         // TODO 5: buscar por nombre "Chicha" y listar todas las bebidas.
 
-        System.out.println("Proyecto listo. Comienza por la clase Bebida.");
+
+
+        BebidaAlcoholica chichaAlc = new BebidaAlcoholica("Chicha", 1000, 40, 12, false, false);
+        BebidaAlcoholica piscoSour = new BebidaAlcoholica("Pisco Sour", 500, 25.0, 18, true, false);
+        BebidasSinAlcohol chichaSinAlc = new BebidasSinAlcohol("Chicha", 1000, 60, 95.0);
+        BebidasSinAlcohol mote = new BebidasSinAlcohol("Mote con Huesillo", 400, 50, 70.0);
+
+                chichaAlc.restringirVenta();
+
+                GestorFonda gestor = new GestorFonda();
+                gestor.agregarBebida(chichaAlc);
+                gestor.agregarBebida(piscoSour);
+                gestor.agregarBebida(chichaSinAlc);
+                gestor.agregarBebida(mote);
+
+                gestor.registrarVenta(chichaAlc, 2);
+                gestor.registrarVenta(piscoSour, 1);
+                gestor.registrarVenta(chichaSinAlc, 3);
+                gestor.registrarVenta(mote, 2);
+
+                System.out.println("--- BÚSQUEDA DE CHICHA ---");
+                gestor.buscarPorNombre("Chicha");
+
+                System.out.println("\n--- LISTADO DE TODAS LAS BEBIDAS ---");
+                gestor.mostrarTodasLasBebidas();
+            }
     }
-}
+
+
+

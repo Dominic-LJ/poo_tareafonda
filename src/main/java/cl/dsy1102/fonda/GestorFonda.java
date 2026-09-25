@@ -15,4 +15,18 @@ public class GestorFonda {
     public List<Bebida> getListabebidas(){
         return listabebidas;
     }
+
+    public void registrarVenta(BebidaAlcoholica chichaAlc, int i) {
+    }
+
+    public void registrarVenta(BebidasSinAlcohol chichaSinAlc, int i) {
+        
+    }
+
+    public void buscarPorNombre(String chicha) {
+        
+    }
+
+    public void mostrarTodasLasBebidas() {
+    }
 }

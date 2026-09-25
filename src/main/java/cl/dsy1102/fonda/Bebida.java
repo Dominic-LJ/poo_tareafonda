@@ -35,6 +35,12 @@ public abstract class Bebida {
         setStock(stock);
     }
 
+    public abstract boolean tieneVentaRestringida();
+
+    public abstract void restringirVenta();
+
+    public abstract boolean superaLimite(int unidades);
+
     public abstract double calcularPrecio();
 
     public abstract String obtenerDetalle();
