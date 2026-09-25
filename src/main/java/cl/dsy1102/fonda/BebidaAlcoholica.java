@@ -28,12 +28,19 @@ public class BebidaAlcoholica {
     public void setCertificada(boolean certificada) {
         this.certificada = certificada;
     }
-
-    public boolean isVentaRestringida() {
+    @Override
+    public boolean tieneVentaRestringida() {
         return ventaRestringida;
     }
-
-    public void setVentaRestringida(boolean ventaRestringida) {
-        this.ventaRestringida = ventaRestringida;
+    @Override
+    public void restringirVenta() {
+        ventaRestringida = true;
     }
+
+    public boolean superaLimite(int unidades){
+        return unidades <= LIMITE_UNIDADES_POR_CLIENTE;
+
+    }
+
+
 }

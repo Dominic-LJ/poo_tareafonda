@@ -5,7 +5,7 @@ public abstract class Bebida {
     private int volumenMl;
     private int stock;
 
-    public Bebida(String nombre, int volumenMl, int stock){
+    public Bebida(String nombre, int volumenMl, int stock) {
         setNombre(nombre);
         setVolumenMl(volumenMl);
         setStock(stock);
@@ -16,7 +16,9 @@ public abstract class Bebida {
     }
 
     public void setNombre(String nombre) {
-        setNombre(nombre);
+        if (nombre == null || nombre.trim().isEmpty()){
+            throw new IllegalArgumentException("El nombre no puede estar vacío");
+        }
     }
 
     public int getVolumenMl() {
@@ -34,4 +36,15 @@ public abstract class Bebida {
     public void setStock(int stock) {
         setStock(stock);
     }
+
+    public abstract double calcularPrecio();
+
+    public abstract String obtenerDetalle();
+
+    @Override
+    public String toString() {
+        return nombre + "-" + volumenMl + "ml";
+    }
+
+
 }
