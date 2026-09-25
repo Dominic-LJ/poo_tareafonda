@@ -44,7 +44,7 @@ public class BebidaAlcoholica extends Bebida {
             precioBase = precioBase *1.2;
         }
         return precioBase;
-    }
+    }//
     @Override
     public String obtenerDetalle(){
         return "Alcoholica: " + getNombre() + "grados: " + gradosAlcohol + "Certidicada: " + certificada + "restringida" + ventaRestringida;
