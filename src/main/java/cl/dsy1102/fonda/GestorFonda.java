@@ -3,12 +3,16 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class GestorFonda {
-    private List<Bebida> bebidas;
-    public void gestorFonda();
-    public void registrar<Bebida> bebidas;
-
+    private List<Bebida> listabebidas;
 
     public GestorFonda(){
-        this.bebidas = new ArrayList<>();
+        this.listabebidas = new ArrayList<>();
+    }
+
+    public void agregarBebida(Bebida bebida) {
+        this.listabebidas.add(bebida);
+    }
+    public List<Bebida> getListabebidas(){
+        return listabebidas;
     }
 }
