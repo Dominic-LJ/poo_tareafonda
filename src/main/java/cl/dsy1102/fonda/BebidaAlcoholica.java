@@ -22,12 +22,17 @@ public class BebidaAlcoholica extends Bebida {
         return certificada;
     }
 
+    //comportamientos de herencia
     @Override
     public boolean tieneVentaRestringida(){
         return ventaRestringida;
     }
-
     @Override
+    public boolean tieneVentaRestringida(){
+        return this.isVentaRestringida();
+    }
+
+    @Override //esta linea esta correcta
     public void restringirVenta(){
         this.ventaRestringida  = true;
     }
@@ -47,6 +52,11 @@ public class BebidaAlcoholica extends Bebida {
     }//
     @Override
     public String obtenerDetalle(){
-        return "Alcoholica: " + getNombre() + "grados: " + gradosAlcohol + "Certidicada: " + certificada + "restringida" + ventaRestringida;
+        String esCertificada = this.isCertificada()?"Si":"";
+        String respuesta= "";
+        respuesta = "Tipo: Bebida Sin Alcohol | ";
+        respuesta = "Nombre: " + this.getNombre() + " | ";
+
+
     }
 }

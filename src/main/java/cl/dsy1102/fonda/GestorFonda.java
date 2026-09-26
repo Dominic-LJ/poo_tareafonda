@@ -1,4 +1,6 @@
 package cl.dsy1102.fonda;
+import com.sun.nio.sctp.IllegalReceiveException;
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -9,22 +11,35 @@ public class GestorFonda {
         this.listabebidas = new ArrayList<>();
     }
 
-    public void agregarBebida(Bebida bebida) {
-        this.listabebidas.add(bebida);
-    }
+
     public List<Bebida> getListabebidas(){
         return listabebidas;
     }
 
-    public void registrarVenta(BebidaAlcoholica chichaAlc, int i) {
+    public List<Bebida> buscarPorNormbre(String nombre){
+        ArrayList<Bebida> bebidasEncontradas = new ArrayList<>();
+        for(Bebida bebida: this.getListabebidas()){
+            if (bebida.getNombre().equalsIgnoreCase(nombre)){
+                bebidasEncontradas.add(bebida);
+            }
+        }
+        return  bebidasEncontradas;
     }
 
-    public void registrarVenta(BebidasSinAlcohol chichaSinAlc, int i) {
-        
-    }
-
-    public void buscarPorNombre(String chicha) {
-        
+    public void vender(String nombre, int unidades){
+        List<Bebida> bebidadsRespectivas = this.buscarPorNormbre(nombre);
+        for (Bebida bebida: bebidadsRespectivas){
+            if(bebida.getStock()>= unidades){
+                if (bebida instanceof ConsumoResponsable){
+                    boolean checked;
+                    checked = ((ConsumoResponsable)bebida).superaLimite(unidades);
+                    if(checked){
+                        IllegalArgumentException excepcion = new IllegalArgumentException(("Se suepra el limite de venta"));
+                        throw excepcion;
+                    }
+                }
+            }
+        }
     }
 
     public void mostrarTodasLasBebidas() {

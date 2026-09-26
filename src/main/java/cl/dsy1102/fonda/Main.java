@@ -22,10 +22,10 @@ public class Main {
 
 
 
-        BebidaAlcoholica chichaAlc = new BebidaAlcoholica("Chicha", 1000, 40, 12, false, false);
-        BebidaAlcoholica piscoSour = new BebidaAlcoholica("Pisco Sour", 500, 25.0, 18, true, false);
-        BebidasSinAlcohol chichaSinAlc = new BebidasSinAlcohol("Chicha", 1000, 60, 95.0);
-        BebidasSinAlcohol mote = new BebidasSinAlcohol("Mote con Huesillo", 400, 50, 70.0);
+        Bebida chichaAlc = new BebidaAlcoholica("Chicha", 1000, 40, 12, false, false);
+        Bebida piscoSour = new BebidaAlcoholica("Pisco Sour", 500, 25.0, 18, true, false);
+        Bebida chichaSinAlc = new BebidasSinAlcohol("Chicha", 1000, 60, 95.0);
+        Bebida mote = new BebidasSinAlcohol("Mote con Huesillo", 400, 50, 70.0);
 
                 chichaAlc.restringirVenta();
 
@@ -41,7 +41,7 @@ public class Main {
                 gestor.registrarVenta(mote, 2);
 
                 System.out.println("--- BÚSQUEDA DE CHICHA ---");
-                gestor.buscarPorNombre("Chicha");
+                gestor.buscarPorNombre(nombre);
 
                 System.out.println("\n--- LISTADO DE TODAS LAS BEBIDAS ---");
                 gestor.mostrarTodasLasBebidas();
